@@ -1,0 +1,7 @@
+C - card
+R - value, suit, rank, know where it is in deck
+C - Deck
+
+C - deck
+R - is shuffled, card dealt from it, holds the cards in an order, 
+C - Card
