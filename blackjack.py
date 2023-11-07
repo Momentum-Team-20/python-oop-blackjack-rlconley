@@ -51,6 +51,14 @@ class Player:
     def __str__(self):
         return self.name
 
+    def look_at_hand(self):
+        '''Shows cards in hand to player'''
+        pass
+
+    def calculate_hand_value(self):
+        '''return the total value of the hand'''
+        pass
+
 
 class Dealer(Player):
     def __init__(self):
@@ -87,3 +95,4 @@ class Game:
 
 
 new_game = Game()
+# TODO Add values of each hand so player and dealer can decide to hit or stay
