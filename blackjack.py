@@ -1,3 +1,5 @@
+import random
+
 # Write your blackjack game here.
 # C - card
 # R - value, suit, rank, know where it is in deck
@@ -37,31 +39,51 @@ class Deck:
                 self.cards.append(card)
         print(f'There are {len(self.cards)} in this deck.')
 
+    def shuffle(self):
+        random.shuffle(self.cards)
+
 
 class Player:
     def __init__(self, name):
         self.name = name
         self.hand = []
 
+    def __str__(self):
+        return self.name
+
 
 class Dealer(Player):
     def __init__(self):
         self.name = 'Dealer'
-        super(Player, self).__init__()
+        super().__init__('Dealer')
 
 
 class Game:
     def __init__(self):
         self.deck = Deck()
+        self.deck.shuffle()
         self.player = Player(name=input("What is your name? "))
         self.dealer = Dealer()
+        self.deal_cards()
 
 # ace_of_spades = Card(suit='♠️', rank='A', value=(1, 11))
 # four_of_clubs = Card(suit='♣️', rank=4, value=4)
+    def deal_cards(self):
+        '''Deal 2 cards each to the player and the dealer '''
+        while len(self.player.hand) < 2 and len(self.dealer.hand) < 2:
+            card = self.deck.cards.pop()
+            self.player.hand.append(card)
+            card = self.deck.cards.pop()
+            self.dealer.hand.append(card)
+        print(f'{self.player} has {self.player.hand} \n'
+              f'and {self.dealer} has {self.dealer.hand}')
 
+    def hit(self, player):
+        '''Deal one card to the selected player'''
+        pass
 
 # print(ace_of_spades)
 # print(four_of_clubs)
 
+
 new_game = Game()
-breakpoint()
