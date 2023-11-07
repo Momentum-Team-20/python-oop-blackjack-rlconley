@@ -38,12 +38,30 @@ class Deck:
         print(f'There are {len(self.cards)} in this deck.')
 
 
-ace_of_spades = Card(suit='♠️', rank='A', value=(1, 11))
-four_of_clubs = Card(suit='♣️', rank=4, value=4)
+class Player:
+    def __init__(self, name):
+        self.name = name
+        self.hand = []
 
 
-print(ace_of_spades)
-print(four_of_clubs)
+class Dealer(Player):
+    def __init__(self):
+        self.name = 'Dealer'
+        super(Player, self).__init__()
 
-deck = Deck()
-# this line causes a deck to be created
+
+class Game:
+    def __init__(self):
+        self.deck = Deck()
+        self.player = Player(name=input("What is your name? "))
+        self.dealer = Dealer()
+
+# ace_of_spades = Card(suit='♠️', rank='A', value=(1, 11))
+# four_of_clubs = Card(suit='♣️', rank=4, value=4)
+
+
+# print(ace_of_spades)
+# print(four_of_clubs)
+
+new_game = Game()
+breakpoint()
